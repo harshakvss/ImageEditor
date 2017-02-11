@@ -207,6 +207,38 @@ class ImgArea extends Canvas{
  public void setActionResized(boolean value ){ 
   actionResized=value;
  } 
+	 public void ImgRotation(BufferedImage image,int w,int h){
+	   
+	   BufferedImage bi=(BufferedImage)createImage(w,h);
+	   Graphics2D  g2d=(Graphics2D)bi.createGraphics(); 
+	   radian=(float)Math.PI/2;     
+	   g2d.translate(w/2,h/2); 
+	   g2d.rotate(radian); 
+	   g2d.translate(-h/2,-w/2); 
+	   g2d.drawImage(image,0,0,null); 
+	   bufimg=bi; 
+	   g2d.dispose();  
+	   
+	   
+	  }
+	  
+	  public void rotateImage(){
+	    BufferedImage bi;
+	    
+	    if(actionSlided || actionResized || actionTransparent || actionRotated || drawn){
+	     bi=bufimg;     
+	    }
+	     
+	    else{
+	     bi=BufferedImg;
+	    }
+
+	   ImgRotation(bi,bi.getHeight(),bi.getWidth());
+	        
+	    actionRotated=true; 
+	    repaint(); 
+	     
+	   }
  
 }
 
