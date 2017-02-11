@@ -245,6 +245,14 @@ public class Main extends JFrame implements ActionListener{
 	    if(ImgArea.imgLoad)
 	     ir.enableComponents(true);  
 	     }
+		   else if(source.getText().compareTo("Image rotation")==0)
+	    {
+	     
+	    if(ImgArea.imgLoad){
+	     ima.rotateImage();
+	     enableSaving(true);
+	     } 
+	    }
 	  } 
 	      
 
